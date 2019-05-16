@@ -1,0 +1,9 @@
+<h1>All Posts here</h1>
+
+<%= @posts.each do |post| %>
+	<div>
+		<p><%= post.title %></p>
+		<p><%= link_to "Original news", "#{post.url}", target: "_blank" %></p>
+		<p><%= link_to "Show", post_path(post) %></p>
+	</div>
+<% end %>
