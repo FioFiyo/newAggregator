@@ -1,5 +1,8 @@
 <h1>Welcome to the News Aggregator!</h1>
 
-<%= link_to "All the news", controller: 'posts' %>
+<p>Current users: <%= link_to "Login", new_session_path %> </p>
 
-<p><%= link_to "Signup!", new_user_path %></p>
+
+<p><%= link_to "All the news", controller: 'posts' %></p>
+
+<p>New? <%= link_to "Signup!", new_user_path %></p>
