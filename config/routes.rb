@@ -7,5 +7,10 @@ Rails.application.routes.draw do
 		resources :posts
 	end
 
+	#sessions for Users when logged in/ logged out
+	get '/login' => 'sessions#new'
+	post '/login' => 'sessions#create'
+	get '/logout' => 'sessions#destroy'
+
 	root 'welcome#index'
 end
