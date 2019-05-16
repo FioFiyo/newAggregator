@@ -1,5 +1,6 @@
 <h1>All Posts here</h1>
-
+<h2><%= link_to "Create new post", new_post_path %></h2>
+<hr>
 <% @posts.each do |post| %>
 	<div>
 		<h3><%= post.title %></h3>
