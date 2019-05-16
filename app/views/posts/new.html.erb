@@ -2,7 +2,7 @@
 	<h1>Create a new Post</h1>
  <!-- could use form_for and attribute a variable to it: form_for @post_form%> -->
  <!-- remove local: true for ajax -->
-	<%= form_with scope: :post, url: :posts ,local: true do |entry| %>
+	<%= form_for [@user, @post] do |entry| %>
 
 		<% if @post.errors.any? %>
 			<div class="post-errors">
