@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+	before_action :authenticate_user!, except: [:index, :show]
 	def index
 		@posts = Post.all
 	end
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(post_params)
-
+		@post.user_id = session[:user_id]
 		if @post.save
 			redirect_to @post
 		else
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :url)
+		params.require(:post).permit(:title, :url, :user_id)
 	end
 
 end
