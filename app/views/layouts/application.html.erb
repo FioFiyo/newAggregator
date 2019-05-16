@@ -10,6 +10,19 @@
   </head>
 
   <body>
+
+    <% if current_user %>
+      <span><small>Logged in as <%= "#{session_info}" %></small></span>
+      <span><small><%= link_to 'Logout', logout_path %></small></span>
+    <% end %>
+
+    <div id="flash">
+      <% flash.each do |key, val|%>
+        <div><%= val %></div>
+      <% end %>
+    </div>
+
     <%= yield %>
+    
   </body>
 </html>
