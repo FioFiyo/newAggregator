@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 	#setup for index page
-	resources :news
+	resources :posts
 
-	root 'news#index'
+	root 'posts#index'
 end
