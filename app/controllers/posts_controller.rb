@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 	end
 
 	def edit
+		#TODO
 		@post = Post.find(params[:id])
 	end
 
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
+		#TODO
 	end
 
 	private
