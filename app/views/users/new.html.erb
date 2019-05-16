@@ -1,0 +1,35 @@
+<section>
+	<h1>Signup</h1>
+ <!-- could use form_for and attribute a variable to it: form_for @user_form%> -->
+ <!-- remove local: true for ajax -->
+	<%= form_with scope: :user, url: :users ,local: true do |entry| %>
+
+		<% if @user.errors.any? %>
+			<div class="user-errors">
+				<p>
+					<%= pluralize(@user.errors.count, "error") %> found and user can not be saved: 
+				</p>
+				<ul>
+					<% @user.errors.full_messages.each do |error| %>
+						<li><%= error %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		<div>
+			<%= entry.label "Email" %>
+			<%= entry.text_field :email %>
+		</div>
+		<div>
+			<%= entry.label "Password" %>
+			<%= entry.text_field :password %>
+		</div>
+		<div>
+			<%= entry.label "password_confirmation" %>
+			<%= entry.password_field :password_confirmation %>
+		</div>
+		<%= entry.submit "Submit" %>
+	<% end %>
+	<br>
+	<%= link_to "Go back", welcome_index_path %>
+</section>
