@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 	get 'welcome/index'
 
-	resources :posts
+	resources :posts, only: [:show, :index]
 
 	resources :users, only: [:new, :create] do
 		resources :posts
