@@ -1,11 +1,18 @@
 <h1>All Posts here</h1>
-<h2><%= link_to "Create new post", new_post_path %></h2>
+<% if current_user %>
+	<h2><%= link_to "Create new post", new_user_post_path(current_user) %></h2>
+<% else %>
+	<p> Login to create a new post <span><%=link_to 'Login', login_path%></span></p>
+<% end %>
 <hr>
 <% @posts.each do |post| %>
 	<div>
 		<h3><%= post.title %></h3>
-		<p><%= link_to "Original news", "#{post.url}", target: "_blank" %></p>
+		<p> Owner: <strong><%= find_email(post) %></strong></p>
+		<p><%= link_to "#{post.url}", "http://#{post.url}", target: "_blank", rel: "nofollow" %></p>
 		<p><%= link_to "Show", post_path(post) %></p>
 	</div>
 	<hr>
 <% end %>
+
+<%= link_to "Go back to Home", welcome_index_path %>
