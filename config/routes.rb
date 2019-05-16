@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
 	resources :posts
 
+	resources :users, only: [:new, :create] do
+		resources :posts
+	end
+
 	root 'welcome#index'
 end
