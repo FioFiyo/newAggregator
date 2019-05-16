@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
 			flash[:success] = 'Welcome back!'
 			redirect_to '/posts'
 		else
-			flash[:warning] = "Invalid email or password. Please try again."
 			redirect_to '/login'
+			flash[:warning] = "Invalid email or password. Please try again."	
 		end
 	end
 
