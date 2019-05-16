@@ -3,6 +3,19 @@
  <!-- could use form_for and attribute a variable to it: form_for @post_form%> -->
  <!-- remove local: true for ajax -->
 	<%= form_with scope: :post, url: :posts ,local: true do |entry| %>
+
+		<% if @post.errors.any? %>
+			<div class="post-errors">
+				<p>
+					<%= pluralize(@post.errors.count, "error") %> found and post can not be saved: 
+				</p>
+				<ul>
+					<% @post.errors.full_messages.each do |error| %>
+						<li><%= error %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
 		<div>
 			<%= entry.label "Title" %>
 			<%= entry.text_field :title %>
