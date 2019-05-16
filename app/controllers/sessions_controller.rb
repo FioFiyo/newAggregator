@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
 		else
 			flash[:warning] = "Invalid email or password. Please try again."
 			redirect_to '/login'
+		end
 	end
 
 	def destroy
