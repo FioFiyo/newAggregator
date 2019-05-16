@@ -1,7 +1,6 @@
 <h1>Welcome to the News Aggregator!</h1>
 <% if ! current_user %>
 	<p>New? <%= link_to "Signup!", new_user_path %></p>
-<% else %>
  	<p>Current users: <%= link_to "Login", login_path %> </p>
 <% end %>
 
