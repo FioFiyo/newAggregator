@@ -1,7 +1,7 @@
 <section>
-	<h1>News!</h1>
+	<h1>Your Posts!</h1>
 	<p>Title <%= @post.title %> </p>
-	<p>URL: <%= link_to "#{@post.url}", "#{@post.url}", target: "_blank" %></p>
+	<p>URL: <%= link_to "#{@post.url}", "http://#{@post.url}", target: "_blank" %></p>
 
-	<%= link_to "Go back to all Posts", posts_path %>
+	<%= link_to "Go to all Posts", posts_path %>
 </section>
