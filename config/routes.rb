@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-	#setup for index page
+	get 'welcome/index'
+
 	resources :posts
 
-	root 'posts#index'
+	root 'welcome#index'
 end
