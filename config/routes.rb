@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 	resources :posts, only: [:show, :index]
 
 	resources :users, only: [:new, :create] do
-		resources :posts
+		resources :posts do 
+			resources :comments, only: [:new, :create, :delete]
+		end
 	end
 
 	#sessions for Users when logged in/ logged out
