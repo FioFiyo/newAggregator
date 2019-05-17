@@ -1,0 +1,28 @@
+<section>
+	<h1>Create new comment: </h1>
+	<%= form_for [@user, @post, @comment] do |entry| %>
+
+		<% if @comment.errors.any? %>
+			<div class="comment-errors">
+				<p>
+					<%= pluralize(@comment.errors.count, "error") %> found and comment can not be saved: 
+				</p>
+				<ul>
+					<% @comment.errors.full_messages.each do |error| %>
+						<li><%= error %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		
+		<div>
+			<%= entry.label "Insert comment below" %>
+			<br>
+			<%= entry.text_area :content %>
+		</div>
+		<%= entry.submit "Submit" %>
+	<% end %>
+
+	<%= link_to "Go back", posts_path %>
+
+</section>
