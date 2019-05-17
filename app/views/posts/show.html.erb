@@ -2,6 +2,9 @@
 	<h1>Your Posts!</h1>
 	<p>Title <%= @post.title %> </p>
 	<p>URL: <%= link_to "#{@post.url}", "http://#{@post.url}", target: "_blank" %></p>
+	<% if current_user %>
+		<p><%= link_to "Click to leave a comment on this posts", new_user_post_comment_path(@user, @post) %></p>
+	<% end %>
 
 	<%= link_to "Go to all Posts", posts_path %>
 </section>

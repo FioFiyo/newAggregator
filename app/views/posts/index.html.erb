@@ -11,6 +11,14 @@
 		<p> Owner: <strong><%= find_email(post) %></strong></p>
 		<p><%= link_to "#{post.url}", "http://#{post.url}", target: "_blank", rel: "nofollow" %></p>
 		<p><%= link_to "Show", post_path(post) %></p>
+
+		<% if post.comments %>
+		<% post.comments.each do |comment| %>
+			<p> Comment by <%= "#{User.find(comment.user_id).email}" %></p>
+			<p> <%= comment.content %> </p>
+		<% end %>
+
+		<% end %>
 	</div>
 	<hr>
 <% end %>
